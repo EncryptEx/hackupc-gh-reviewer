@@ -1,0 +1,21 @@
+{
+    "name": "Github Activity HackAssistant Reviewer",
+    "version": "1.0.0",
+    "description": "Modifies html and adds user GH activity during last year",
+    "manifest_version": 3,
+    "author": "EncryptEx",
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "modify.js"
+            ]
+        }
+    ]
+}
