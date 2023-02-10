@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<title>Popup</title>
+</head>
+<body class="container mt-2 mb-4" style="min-width: 300px;">
+	<h3>The GitHub Reviewer's best friend</h3>
+	<label for="savedToken">Current Token:</label>
+	<div class="input-group">
+		<input type="text" class="form-control disabled" disabled id="savedToken" aria-describedby="button">
+		<button class="btn btn-info" id="showToken">Show</button>
+	</div>
+
+	<br>
+	<label for="token">GitHub Token</label>
+	<a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic" class="text-decoration-none text-muted" style="font-size:50%">Create a classic token with read:user perms</a>
+	<div class="input-group">
+		<input type="password" class="form-control" id="token" aria-describedby="button">
+		<button class="btn btn-success" id="saveToken">Save</button>
+	</div>
+	
+
+</body>
+<script src="popup.js"></script>
+</html>
