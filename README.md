@@ -12,7 +12,7 @@ v.1.0
 
 4. Load the **src** folder. The extension will now work.
 
-5. Go to [Create a personal **classic** token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with **read:user** prop.
+5. [Create a personal **classic** token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic) with **read:user** prop.
 
 6. Click on the extension and load the token
 
