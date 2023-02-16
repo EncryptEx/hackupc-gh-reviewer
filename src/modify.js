@@ -145,7 +145,7 @@ fetch('https://api.gptzero.me/v2/predict/text', {
 	console.log(data);
 	if(data.error){return;}
 	if(data.documents[0].completely_generated_prob > 0.50){
-		WhyTitle.innerHTML = WhyTitle.innerText + "<br><b class='btn btn-danger text-bold'>GPT triggered</b>";
+		WhyTitle.innerHTML = WhyTitle.innerText + `<br><b class='btn btn-danger text-bold'>GPT ${data.documents[0].completely_generated_prob}%</b>`;
 	}
 
 
