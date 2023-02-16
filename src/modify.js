@@ -73,7 +73,7 @@ function getGithubData(username) {
 				marker = "🟢";
 			} else if (contribs > 600 && contribs < 1000) {
 				marker = "⭐";
-			} else if (contribs > 600 && contribs < 1000) {
+			} else if (contribs > 1000) {
 				marker = "🌟";
 			}
 			p3text.innerHTML = `${marker} ${contribs}`;
