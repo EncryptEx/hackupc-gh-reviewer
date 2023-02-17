@@ -1,3 +1,5 @@
+
+
 function getToken() {
 	return chrome.storage.sync.get("token");
 }
@@ -71,7 +73,7 @@ function getGithubData(username) {
 				marker = "🟢";
 			} else if (contribs > 600 && contribs < 1000) {
 				marker = "⭐";
-			} else if (contribs > 600 && contribs < 1000) {
+			} else if (contribs > 1000) {
 				marker = "🌟";
 			}
 			p3text.innerHTML = `${marker} ${contribs}`;
@@ -91,3 +93,64 @@ if (ghElement) {
 		getGithubData(username);
 	});
 }
+
+
+
+
+// chatgpt detection
+// var whys = document.querySelector(
+// 	'dt'
+// );
+var startSavingDds = false;
+var dds = [];
+
+var children = [].slice.call(document.getElementsByClassName("dl-horizontal")[0].getElementsByTagName('*'),0);
+
+var elemnts = new Array(children.length);
+var arrayLength = children.length;
+for (var i = 0; i < arrayLength; i++) {
+	var e = children[i];
+	if(e.tagName == "DT"){
+		// check if dt has a h3 in it
+		console.log(e.innerText);
+		if(e.innerText.startsWith("Why excited")){
+			var WhyTitle = e;
+		}
+		if(e.getElementsByTagName('h3').length > 0){
+			// is background ? 
+			var title = e.getElementsByTagName('h3')[0];
+			if(title.innerText == "Background"){
+				startSavingDds=true;
+			}
+		}
+	}
+
+	if(startSavingDds && e.tagName == "DD"){
+		dds.push(e);
+	}
+}
+
+const whyExcited = dds[2].innerText; // always why excited
+
+fetch('https://api.gptzero.me/v2/predict/text', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'accept': 'application/json'
+  },
+  body: JSON.stringify({
+    document: whyExcited
+  })
+})
+.then(response => response.json())
+.then(data => {
+
+	console.log(data);
+	if(data.error){return;}
+	if(data.documents[0].completely_generated_prob > 0.50){
+		WhyTitle.innerHTML = WhyTitle.innerText + `<br><b class='btn btn-danger text-bold'>GPT ${Math.floor(data.documents[0].completely_generated_prob * 100)}%</b>`;
+	}
+
+
+})
+.catch(error => console.error(error))
