@@ -84,6 +84,7 @@ var ghElement = document.querySelector(
 if (ghElement) {
 	var link = ghElement.getAttribute("href");
 	var username = link.trimEnd("/").split("/");
+	if(username[username.length -1] == ""){ username.splice(username.length-1,1)}
 	username = username[username.length - 1];
 	getToken().then(function (values) {
 		token = values['token'];
