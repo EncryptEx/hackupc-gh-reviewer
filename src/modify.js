@@ -65,13 +65,13 @@ function getGithubData(username) {
 			// Icon to make quickier to understand.
 			if (contribs < 100) {
 				marker = "🔴";
-			} else if (contribs > 100 && contribs < 200) {
+			} else if (contribs >= 100 && contribs < 200) {
 				marker = "🟠";
-			} else if (contribs > 300 && contribs < 400) {
+			} else if (contribs >= 300 && contribs < 400) {
 				marker = "🟢";
-			} else if (contribs > 100 && contribs < 600) {
+			} else if (contribs >= 100 && contribs < 600) {
 				marker = "🟢";
-			} else if (contribs > 600 && contribs < 1000) {
+			} else if (contribs >= 600 && contribs < 1000) {
 				marker = "⭐";
 			} else if (contribs > 1000) {
 				marker = "🌟";
